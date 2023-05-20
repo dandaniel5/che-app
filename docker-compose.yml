@@ -1,0 +1,8 @@
+version: "3"
+services:
+  che-app:
+    build: .
+    ports:
+      - "443:443"
+    volumes:
+      - .:/app
