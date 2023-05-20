@@ -1,0 +1,191 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+{% block body %}
+<p hidden id="theId">{{user_id}}</p>
+<p hidden id="theData">{{date}}</p>
+
+
+
+<!--<br>-->
+<ul class="nav flex-sm-row nav-fill">
+    <li class="nav-item">
+    <button  type="button" id="yesterday" class="btn btn-outline-primary"
+             onclick="location.href='{{yesterday_link}}'"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+</svg>
+
+
+     </button>
+  </li>
+
+    <li class="nav-item">
+   <h3> &ensp;  </h3>
+  </li>
+    <li class="nav-item">
+   <h3> &ensp;  </h3>
+  </li>
+
+<!--<li class="nav-item">-->
+<!--    <h3>Задачи на&ensp;  </h3>-->
+<!--</li>-->
+<!--  <li class="nav-item">-->
+<!--    <button type="button" class="btn btn-outline-primary">{{date}}</button>-->
+<!--  </li>-->
+
+    <li class="nav-item">
+        <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                {{date}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for day in link_list %}
+
+                <li><a class="dropdown-item" onclick="location.href='{{day}}'">
+
+
+                    <script>
+var str = "{{day}}";
+document.writeln(str.slice(-11,-1));
+</script>
+
+                </a></li>
+                {% endfor %}
+<!--                {% for key, value in link_dict%}-->
+<!--                <li><a class="dropdown-item" onclick="location.href='{{value}}'">{{key}}</a></li>-->
+<!--                {% endfor %}-->
+
+            </ul>
+        </div>
+    </li>
+
+
+<!--   <h3> &ensp;  </h3>-->
+<!--  </li>-->
+<!--  <li class="nav-item">-->
+<!--    <button  type="button" class="btn btn-info" onClick="window.location.reload();"> 🔄 </button>-->
+<!--  </li>-->
+    <li class="nav-item">
+   <h3> &ensp;  </h3>
+  </li>
+    <li class="nav-item">
+   <h3> &ensp;  </h3>
+  </li>
+    <li class="nav-item">
+    <button  type="button" id="tomorrow" class="btn btn-outline-primary"
+
+    onclick="location.href='{{tomorrow_link}}'"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+</svg>
+
+    </button>
+  </li>
+<!--    <li class="nav-item">-->
+<!--   <h3> &ensp;  </h3>-->
+<!--  </li>-->
+<!--  <li class="nav-item">-->
+
+<!--  </li>-->
+</ul>
+
+
+
+
+
+<br>
+
+
+{#
+{% for dict_item in list_val %}
+   {% for key, value in dict_item.items() %}
+      {{value}}<br>
+   {% endfor %}
+{% endfor %}
+#}
+<div class="list-group" id="list-group">
+    {% for i in range(list_val_len) %}{#итерируем через общее коллличество элементов в списке#}
+
+    <label class="collapse show list-group-item" for="val{{ i+1 }}" name="val{{ i+1 }}" id="label{{ i+1 }}">{#создаем лебл#}
+
+
+
+            {#создаем чекбокс#}
+        <input class="form-check-input me-1"
+               type="checkbox"
+               id="val{{ i+1 }}"
+               name="{% for item in list_val[i] %}{{ item }}{% endfor %}"
+               value=list_val[i]
+               {#прописывем состояние чекбокса через итерирование значения словаря#}
+
+                {% for key, value in list_val[i].items() %}
+                   {{value}}
+                {% endfor %}
+        >
+        {#прописывем подписи к чекбоксам через итерирование каждый словарем в списке#}
+        {% for item in list_val[i] %}
+            {{ item }}
+        {% endfor %}
+
+
+§
+        </input>
+
+
+<object  class="collapse multi-collapse collapse-horizontal" id="collapseWidthExample" title="удалить чекбокс" align="right" >
+<!--   <a align="right">-->
+<!--    <small>-->
+      <button type="button" class="btn-close btn-sm btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#label{{ i+1 }}" aria-expanded="true" aria-controls="label{{ i+1 }}" >
+<!--        ❌-->
+        </button>
+
+<!--    </small>-->
+<!--</a>-->
+</object>
+
+
+        </label>
+
+    {% endfor %}
+
+     <label id="before"> </label>
+
+     <div class="collapse multi-collapse" id="collapseExample">
+
+      <input id="new-checkbox-text" type="text" class="form-control" placeholder="New Checklist Hear" aria-label="First name">
+
+    </div>
+     
+
+    <button id="plus_button"  type="button" class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false"> ➕ </button>
+
+    
+<!--<h3>game_link</h3>-->
+<!--<h3>{{game_url}}</h3>-->
+<!--<h3>{{game_url}}/gm/{{user_id}}/{{yesterday}}</h3>-->
+
+
+
+
+</div>
+
+<br><br>
+
+<div class="d-grid gap-2">
+  <button class="btn btn-primary" type="button" onClick="TelegramGameProxy.shareScore()" >Share app</button>
+</div>
+
+
+</div>
+
+
+
+
+{% endblock %}
+
+
