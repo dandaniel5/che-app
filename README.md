@@ -15,9 +15,6 @@ che-app is a user-friendly web application designed to help individuals organize
 - **Seamless Telegram Authentication**: Authenticate users securely through their Telegram accounts.
 - **Responsive Design**: Enjoy a seamless experience across different devices.
 
+## https://t.me/CheboxBot 
 
-https://t.me/CheboxBot 
-
-
-[Che_app @CheboxBot](https://github.com/dandaniel5/che-app/assets/88844682/98c2bf24-44cd-44f9-ab7c-21987ea2354b)
-
+![Che_app @CheboxBot](https://github.com/dandaniel5/che-app/assets/88844682/242bdcf6-9ece-456d-a8a2-8f5516c26185)
