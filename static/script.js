@@ -37,9 +37,13 @@ jQuery("document").ready(function () {
         let collapse_let_d = "#collapsedCheckbox" + counter;
         let collapse_let = "collapsedCheckbox" + counter;
         let new_checkbox =
-          "<label class='list-group-item'> <input class='form-check-input me-1' type='checkbox' name='" +
+          "<label class='list-group-item show'> <input class='form-check-input me-1' type='checkbox' name='" +
           value3 +
-          "'>" +
+          "'" +
+          "id = '" +
+          collapse_let +
+          "'" +
+          ">" +
           " " +
           value3 +
           "</label>";
@@ -49,6 +53,7 @@ jQuery("document").ready(function () {
           "'>" +
           new_checkbox +
           "</div>";
+
         $("#before").before(hidden_new_checkbox);
         counter = counter + 1;
 
@@ -56,13 +61,15 @@ jQuery("document").ready(function () {
 
         var checked = [value1, value2];
         $("input:checkbox").each(function () {
-          if ($(this).is(":checked")) {
-            xxx = "checked";
-          } else {
-            xxx = "unchecked";
-          }
+          if ($(this).parent().hasClass("show")) {
+            if ($(this).is(":checked")) {
+              xxx = "checked";
+            } else {
+              xxx = "unchecked";
+            }
 
-          checked.push($(this).attr("name"), xxx);
+            checked.push($(this).attr("name"), xxx);
+          }
         });
 
         $.ajax({
