@@ -8,23 +8,17 @@ import datetime
 import pymongo
 from pymongo.mongo_client import MongoClient
 from urllib.parse import quote_plus
-username = quote_plus('1')
-password = quote_plus('Aek-AGz-eXd-T9L')
+username = quote_plus('#####')
+password = quote_plus('#########')
 uri = f"mongodb+srv://{username}:{password}@apptwo.szcjoez.mongodb.net/?retryWrites=true&w=majority"
 # Create a new client and connect to the server
 
 
 
-TOKEN = '5320542317:AAH1ciyqScjc9ESzVIXbuhAWEK8S_T8vfVc'
-# TOKEN = os.environ.get('TGTOKEN')
-# MongoClient = os.environ.get('MONGOTOKEN')
-# MongoClient = 'mongodb+srv://che_app_db:fLU-tkp-df7-ZZN@clusterparis.frc4y.mongodb.net/?retryWrites=true&w=majority'
-# MongoClient = 'mongodb+srv://dandaniels:fLU-tkp-df7-ZZN@apptwo.szcjoez.mongodb.net/?retryWrites=true&w=majority'
-
-
+TOKEN = '#######################'
 HOOKURL = 'https://api.telegram.org/bot' + TOKEN + '/'
-game_url = 'https://che-app.site'
-game_short_name = 'checklist'
+game_url = 'https://b53d-46-70-125-113.ngrok-free.app'
+game_short_name = '###'
 r = json
 
 client = pymongo.MongoClient(uri)
@@ -303,5 +297,5 @@ if __name__ == '__main__':
     print(Set.text)
     # app.run(host="localhost", port=5003, debug=True)
     # port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=443, debug=False)
+    app.run(host='0.0.0.0', port=5003, debug=False)
     print('exit flask')
